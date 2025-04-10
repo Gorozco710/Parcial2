@@ -28,5 +28,11 @@ namespace Parcial_2
             Lectores lectores = new Lectores();
             lectores.Show();
         }
+
+        private void btnPrestamos_Click(object sender, EventArgs e)
+        {
+            Prestamos prestamos = new Prestamos();
+            prestamos.Show();
+        }
     }
 }
