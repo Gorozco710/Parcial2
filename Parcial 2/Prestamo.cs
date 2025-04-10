@@ -7,22 +7,23 @@ using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Parcial_2
 {
-    internal class Prestamo
+    public class Prestamo
     {
         public string NombreLector { get; set; }
         public string NombreLibro { get; set; }
-        public DateTime FechaPrestamo { get; set; }
+        public DateTime Fecha { get; set; }
 
         public Prestamo(string nombreLector, string nombreLibro, DateTime fechaPrestamo) 
         {
             NombreLector = nombreLector;
             NombreLibro = nombreLibro;
-            FechaPrestamo = fechaPrestamo;
+            Fecha = fechaPrestamo;
         }  
+        public Prestamo() { }
         
 
     }
-    internal class PrestamoArchivo
+    public class PrestamoArchivo
     {
         public void Guardar(string archivo, List<Prestamo> alquileres)
         {

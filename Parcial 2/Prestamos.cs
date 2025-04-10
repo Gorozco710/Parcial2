@@ -32,7 +32,8 @@ namespace Parcial_2
             LibroArchivo libroArchivo = new LibroArchivo();
             listaLibros = libroArchivo.Leer(rutaArchivoLibros);
             comboBoxLibros.DataSource = listaLibros;
-            comboBoxLibros.DisplayMember = "Libro";
+            comboBoxLibros.DisplayMember = "Nombre";             
+            comboBoxLibros.ValueMember = "Identificacion";
         }
 
         private void CargarLectores()
@@ -40,7 +41,8 @@ namespace Parcial_2
             LectorArchivo lectorArchivo = new LectorArchivo();
             listaLectores = lectorArchivo.Leer(rutaArchivoLectores);
             comboBoxLectores.DataSource = listaLectores;
-            comboBoxLibros.DisplayMember = "";
+            comboBoxLectores.DisplayMember = "Nombre";          
+            comboBoxLectores.ValueMember = "Identificacion";
         }
 
         private void CargarPrestamos()
@@ -52,7 +54,9 @@ namespace Parcial_2
 
         private void Prestamos_Load(object sender, EventArgs e)
         {
-
+            CargarLibros();
+            CargarLectores();
+            CargarPrestamos();
         }
         private void LimpiarCampos()
         {
@@ -64,30 +68,29 @@ namespace Parcial_2
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            
-
             if (comboBoxLectores.SelectedValue == null || comboBoxLibros.SelectedValue == null)
             {
-                if (comboBoxLectores.SelectedValue == null || comboBoxLibros.SelectedValue == null)
-                {
-                    MessageBox.Show("Por favor, seleccione un lector y un libro.");
-                    return;
-                }
-
-                DateTime fechaPrestamo = dateTimePicker1.Value;
-                string nitLector = comboBoxLectores.SelectedValue.ToString();
-                string isbnLibro = comboBoxLibros.SelectedValue.ToString();
-
-                // Crear nuevo préstamo
-                Prestamo nuevoPrestamo = new Prestamo(nitLector, isbnLibro, fechaPrestamo);
-                listaPrestamos.Add(nuevoPrestamo);
-                prestamoArchivo.Guardar(rutaArchivoPrestamos, listaPrestamos);
-
-                LimpiarCampos();
-                CargarPrestamos();
+                MessageBox.Show("Por favor, seleccione un lector y un libro.");
+                return;
             }
-        }
-    }
-    }
 
+            DateTime fechaPrestamo = dateTimePicker1.Value;
+            string nombreLector = comboBoxLectores.Text;
+            string nombreLibro = comboBoxLibros.Text;
+
+            // Crear nuevo préstamo
+            Prestamo nuevoPrestamo = new Prestamo(nombreLector, nombreLibro, fechaPrestamo);
+            listaPrestamos.Add(nuevoPrestamo);
+
+            // Guardar en archivo JSON
+            prestamoArchivo.Guardar(rutaArchivoPrestamos, listaPrestamos);
+
+            // Actualizar el DataGridView
+            CargarPrestamos();
+
+            // Limpiar los campos del formulario
+            LimpiarCampos();
+        }
+
+    }
+}

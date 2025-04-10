@@ -31,6 +31,7 @@
             this.btnLibros = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnPrestamos = new System.Windows.Forms.Button();
+            this.btnInforme = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLibros
@@ -49,7 +50,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 70);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Registro Lectores";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -59,15 +60,26 @@
             this.btnPrestamos.Name = "btnPrestamos";
             this.btnPrestamos.Size = new System.Drawing.Size(170, 70);
             this.btnPrestamos.TabIndex = 2;
-            this.btnPrestamos.Text = "button1";
+            this.btnPrestamos.Text = "Regristro Prestamo";
             this.btnPrestamos.UseVisualStyleBackColor = true;
             this.btnPrestamos.Click += new System.EventHandler(this.btnPrestamos_Click);
+            // 
+            // btnInforme
+            // 
+            this.btnInforme.Location = new System.Drawing.Point(459, 234);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Size = new System.Drawing.Size(170, 70);
+            this.btnInforme.TabIndex = 3;
+            this.btnInforme.Text = "Informe Prestamos";
+            this.btnInforme.UseVisualStyleBackColor = true;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 450);
+            this.Controls.Add(this.btnInforme);
             this.Controls.Add(this.btnPrestamos);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnLibros);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button btnLibros;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnPrestamos;
+        private System.Windows.Forms.Button btnInforme;
     }
 }
 

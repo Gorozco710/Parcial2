@@ -34,5 +34,11 @@ namespace Parcial_2
             Prestamos prestamos = new Prestamos();
             prestamos.Show();
         }
+
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+            ResumenPrestamos resumenPrestamos = new ResumenPrestamos();
+            resumenPrestamos.Show();
+        }
     }
 }
